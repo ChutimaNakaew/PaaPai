@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/33e0efac93.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Admin View List name</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+        .logo {
+            height: 150px;
+            width: 150px;
+        }
+        
+        .imgAdmin {
+            height: 70px;
+            width: 70px;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="container" style="font-family: 'Kanit', sans-serif;">
+        <div class="row gx-5 mt-4 mb-4">
+            <div class="col-3">
+                <div class="p-3 border bg-white h-100 rounded-2 shadow p-3 mb-5 bg-body rounded">
+                    <div class="text-center">
+                        <a href="/tour/adminHome"><img src="https://cdn.discordapp.com/attachments/904312349454897192/1052410937170206720/PaaPai.png" class="rounded logo" alt="LOGO_PaaPai"></a>
+                        <hr>
+                        <p class="fw-bold text-primary text-start">ผู้ดูแลระบบ</p>
+                        <div class="row gx-3 d-flex align-items-center justify-content-center">
+                            <div class="col-4">
+                                <img src="https://cdn.discordapp.com/attachments/904312349454897192/1054774745515700375/IMG_20191125_095112.jpg" class="rounded-circle imgAdmin" alt="img_admin">
+                            </div>
+                            <div class="col-8 text-center">
+                                <div class="bg-white h-100">แอดมินต้นหอม
+                                    <div class="bg-danger text-white rounded-3">ออกจากระบบ</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <hr>
+                            <p class="fw-bold text-primary text-start">ทัวร์</p>
+                            <a href="/tour/adminHome" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
+                                    class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
+                            <a href="/tour/adminTour" class="text-decoration-none text-dark"><p class=" text-start ms-2">
+                                <p class=" text-start ms-2"><i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
+                            <hr>
+                            <p class="fw-bold text-primary text-start">รายการชำระเงิน</p>
+                            <a href="/user/adminPayment" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
+                                    class="bi bi-cash"></i> รายการชำระเงิน</p></a>
+                            <a href="/user/adminPaymentApprove" class="text-decoration-none text-dark"><p
+                                    class=" text-start ms-2"><i class="bi bi-check-circle-fill"></i> อนุมัติแล้ว</p></a>
+                            <a href="/user/notPass" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
+                                    class="bi bi-x-circle-fill"></i> ไม่อนุมัติ</p></a>
+                            <hr>
+                            <p class="fw-bold text-primary text-start">การจอง</p>
+                            <a href="/user/adminAllBooking" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
+                                    class="bi bi-receipt-cutoff"></i> รายการจองทั้งหมด</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="p-3 border bg-white h-100 fs-2 rounded-2 shadow p-3 mb-5 bg-body rounded">
+                    <p class=" text-start ms-2 mt-3"><i class="fa-solid fa-address-card"></i> รายชื่อทั้งหมด</p>
+                    <div>
+                        <span>  จำนวนผู้จองในทัวร์นี้ </span>
+                        <span th:text="${count}"></span>
+                        <span>คน</span>
+                    </div>
+                    <hr>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="ค้นหารายชื่อ" aria-label="ชื่อทัวร์" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2"><i
+                            class="bi bi-search"></i></button>
+                    </div>
+                    <table class="table fs-6 table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ไอดี</th>
+                                <th scope="col">ชื่อ-นามสกุล</th>
+                                <th scope="col">โทรศัพท์</th>
+                                <th scope="col">อีเมล</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:if="${count == 0}" class="text-center">
+                                <td colspan="4"> No User Booking</td>
+                            </tr>
+                            <tr th:each="user: ${user}">
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.firstname + '&emsp;' + user.lastname}">
+                                </td>
+                                <td th:text="${user.phone}"></td>
+                                <td th:text="${user.email}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
