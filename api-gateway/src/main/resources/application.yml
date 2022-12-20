@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+    hostname: localhost
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://tourdb:1234@cluster0.tvfr6n3.mongodb.net/?retryWrites=true&w=majority
+      database: PaaPai
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: TourModule
+          uri: lb://TOUR-SERVICE
+          predicates:
+            - Path=/tour/**
+        - id: UserModule
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: PaymentModule
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
+
