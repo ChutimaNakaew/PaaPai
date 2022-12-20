@@ -1,0 +1,77 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add / Edit Reservations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+    </style>
+</head>
+<body>
+<div class="container" style="font-family: 'Kanit', sans-serif;">
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="border border-secondary rounded" style="padding: 5%; padding-left: 20%; padding-right: 20%;">
+        <form th:action="@{/tour/save-reservation}" th:object="${tour}" method="post">
+            <div class="form-group">
+                <label for="name">ชื่อทัวร์:</label>
+                <input th:field="*{name}" type="text" class="form-control" id="name">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+            </div>
+            <div class="form-group">
+                <label for="province">จังหวัด:</label>
+                <input th:field="*{province}" type="text" class="form-control" id="province">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('province')}" th:errors="*{province}"></label>
+            </div>
+            <div class="form-group">
+                <label for="price">ราคา:</label>
+                <input th:field="*{price}" type="text" class="form-control" id="price">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></label>
+            </div>
+            <div class="form-group">
+                <label for="detail">รายละเอียด:</label>
+                <input th:field="*{detail}" type="text" class="form-control" id="detail">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('detail')}" th:errors="*{detail}"></label>
+            </div>
+            <div class="form-group">
+                <label for="schedule">ตารางการเดินทาง:</label>
+                <input th:field="*{schedule}" type="text" class="form-control" id="schedule">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('schedule')}" th:errors="*{schedule}"></label>
+            </div>
+            <div class="form-group">
+                <label>วันที่เดินทาง:</label>
+                <br>
+                <label class="my-2">ครั้งที่ 1:</label>
+                <input th:field="*{date_first}" type="date" class="form-control my-2" >
+                <br>
+                <label class="my-2">ครั้งที่ 2:</label>
+                <input th:field="*{date_second}" type="date" class="form-control my-2" >
+            </div>
+            <div class="form-group">
+                <label for="img">ภาพปก:</label>
+                <input th:field="*{img}" type="text" class="form-control" id="img">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('img')}" th:errors="*{img}"></label>
+            </div>
+            <div class="form-group">
+                <label for="detail_img">ภาพรายละเอียด:</label>
+                <input th:field="*{detail_img}" type="text" class="form-control" id="detail_img">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('detail_img')}"
+                       th:errors="*{detail_img}"></label>
+            </div>
+            <div class="form-group">
+                <label for="img">จำนวนผู้เดินทาง:</label>
+                <input th:field="*{max_tourist}" type="text" class="form-control" id="max_tourist">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('max_tourist')}" th:errors="*{max_tourist}"></label>
+            </div>
+            <div class="text-center">
+                <a th:href="@{/tour/adminTour}">
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                </a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

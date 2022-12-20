@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Form</title>
+    <script type="text/javascript" th:src="@{/js/cssandjs/actions.js}"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/33e0efac93.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+        .border {
+            border: 1px solid #a6a6a6
+        }
+
+        .require {
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container-fluid" style="font-family: 'Kanit', sans-serif;">
+
+    <h1>กรอกรายละเอียดสำหรับติดต่อ</h1>
+    <hr>
+    <div class="row justify-content-md-center">
+        <div class="col-8 gap-5">
+            <div th:each="tour : ${tours}" class="row border">
+                <div class="col-12">
+                    <div class="row m-3">
+
+                        <h5>สรุปรายการจองทัวร์</h5>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row m-2">
+                        <div class="col m-auto">
+                            <img th:src="${tour.img}" width="500" height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2 border">
+                <div class="col-12" th:each="tour : ${tours}">
+                    <form class="m-4" th:action="@{/user/save-user}" th:object="${user}"
+                          method="post">
+                        <div class="col-12">
+                            <h5>แบบฟอร์มการจองสำหรับติดต่อ</h5>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label">ชื่อผู้ติดต่อ
+                                        <span class="require">*</span></label>
+                                    <input th:field="*{firstname}" type="text" class="form-control" id="firstname"
+                                           aria-describedby="emailHelp">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">นามสกุลผู้ติดต่อ
+                                        <span class="require">*</span></label>
+                                    <input th:field="*{lastname}" type="text" class="form-control"
+                                           aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-6">
+                                    <label class="form-label">หมายเลขโทรศัพท์
+                                        <span class="require">*</span></label>
+                                    <input th:field="*{phone}" type="text" class="form-control"
+                                           aria-describedby="emailHelp">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Email <span class="require">*</span></label>
+                                    <input th:field="*{email}" type="email" class="form-control"
+                                           aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <label for="exampleFormControlTextarea1" class="form-label">หมายเหตุ
+                                    </label>
+                                    <textarea th:field="*{annotation}" class="form-control"
+                                              id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="card my-3">
+                                <div class="card-body" th:each="tour : ${tours}">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h5>ชื่อทัวร์</h5>
+                                            <div class="form-group">
+                                                <select class="form-select" th:field="*{tour_name}">
+                                                    <option selected th:each="tour : ${tours.name}"
+                                                            th:value="${tour}"
+                                                            th:text="${tour}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>จังหวัด</h5>
+                                            <div class="form-group">
+                                                <select class="form-select" th:field="*{province}">
+                                                    <option selected th:each="tour : ${tours.province}"
+                                                            th:value="${tour}"
+                                                            th:text="${tour}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>ราคา/ท่าน</h5>
+                                            <div class="form-group">
+                                                <select class="form-select" th:field="*{tour_price}">
+                                                    <option selected th:each="tour : ${tours.price}"
+                                                            th:value="${tour}"
+                                                            th:text="${tour}">
+                                                    </option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-6">
+                                            <h5>วันเดินทาง</h5>
+                                            <div class="form-group">
+                                                <select class="form-select" th:field="*{date}" th:each="tour : ${tours}" id="date">
+                                                    <option value="">เลือกวันเดินทาง</option>
+                                                    <option
+                                                            th:value="${tour.date_first}"
+                                                            th:text="${tour.date_first}">
+                                                    </option>
+                                                    <option
+                                                            th:value="${tour.date_second}"
+                                                            th:text="${tour.date_second}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5>ผู้เดินทาง</h5>
+                                            <div class="input-group">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-person fa-xl"></i></span>
+                                                <input th:field="*{total_tourist}"
+                                                       class="form-outline form-control w-50"
+                                                       type="number" min="1" placeholder="จำนวนผู้เดินทาง">
+                                                <span class="input-group-text">คน</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div th:each="tour : ${tours}" class="mt-2" style="text-align: end;">
+                                <a th:href="@{/tour/detail/{name}(name=${tour.name})}" type="button"
+                                   class="btn btn-secondary">ย้อนกลับ</a>
+                                <button type="submit" class="btn btn-primary">ส่งฟอร์ม</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row border" style="padding-bottom: 167px; padding-top: 167px">
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <h5>ขั้นตอนการจองทัวร์ </h5>
+                </div>
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <i class="bi bi-1-circle-fill text-primary" style="font-size: 3rem;"></i>
+                </div>
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <p class="text-primary">
+                        กรอกรายละเอียดสำหรับติดต่อ
+                    </p>
+                </div>
+                <div class="col-12 d-flex justify-content-center my-5">
+                    <i class="bi bi-arrow-down text-muted" style="font-size: 5rem;"></i>
+                </div>
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <i class="bi bi-2-circle-fill text-muted" style="font-size: 3rem;"></i>
+                </div>
+                <div class="col-12 d-flex justify-content-center my-3">
+                    <p class="text-muted">
+                        ทำการชำระเงิน
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+</script>
+</body>
+
+</html>

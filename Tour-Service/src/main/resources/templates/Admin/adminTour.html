@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ทัวร์ทั้งหมด</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/33e0efac93.js" crossorigin="anonymous"></script>
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .logo {
+            height: 150px;
+            width: 150px;
+        }
+
+        .imgAdmin {
+            height: 70px;
+            width: 70px;
+        }
+
+    </style>
+</head>
+
+<body class="bg-light">
+<div class="container" style="font-family: 'Kanit', sans-serif;">
+    <div class="row gx-5 mt-4 mb-4">
+        <div class="col-3">
+            <div class="p-3 border bg-white h-100 rounded-2 shadow p-3 mb-5 bg-body rounded">
+                <div class="text-center">
+                    <a href="/tour/adminHome"><img
+                            src="https://cdn.discordapp.com/attachments/904312349454897192/1052410937170206720/PaaPai.png"
+                            class="rounded logo" alt="LOGO_PaaPai"></a>
+                    <hr>
+                    <p class="fw-bold text-primary text-start">ผู้ดูแลระบบ</p>
+                    <div class="row gx-3 d-flex align-items-center justify-content-center">
+                        <div class="col-4">
+                            <img src="https://cdn.discordapp.com/attachments/904312349454897192/1054774745515700375/IMG_20191125_095112.jpg"
+                                 class="rounded-circle imgAdmin" alt="img_admin">
+                        </div>
+                        <div class="col-8 text-center">
+                            <div class="bg-white h-100">แอดมินต้นหอม
+                                <div class="bg-danger text-white rounded-3">ออกจากระบบ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <hr>
+                        <p class="fw-bold text-primary text-start">ทัวร์</p>
+                        <a href="/tour/adminHome" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
+                                class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
+                        <a href="/tour/adminTour" class="text-decoration-none text-dark"><p class=" text-start ms-2">
+                            <p class=" text-start ms-2"><i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
+                        <hr>
+                        <p class="fw-bold text-primary text-start">รายการชำระเงิน</p>
+                        <a href="/user/adminPayment" class="text-decoration-none text-dark"><p class=" text-start ms-2">
+                            <i
+                                    class="bi bi-cash"></i> รายการชำระเงิน</p></a>
+                        <a href="/user/adminPaymentApprove" class="text-decoration-none text-dark"><p
+                                class=" text-start ms-2"><i class="bi bi-check-circle-fill"></i> อนุมัติแล้ว</p></a>
+                        <a href="/user/notPass" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
+                                class="bi bi-x-circle-fill"></i> ไม่อนุมัติ</p></a>
+                        <hr>
+                        <p class="fw-bold text-primary text-start">การจอง</p>
+                        <a href="/user/adminAllBooking" class="text-decoration-none text-dark"><p
+                                class=" text-start ms-2"><i
+                                class="bi bi-receipt-cutoff"></i> รายการจองทั้งหมด</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="p-3 border bg-white h-100 fs-2 rounded-2 shadow p-3 mb-5 bg-body rounded">
+                <p class=" text-start ms-2 mt-3"><i class="bi bi-airplane-fill"></i> รวมแพ็กเกจทัวร์</p>
+                <hr>
+                <div class="container p-3">
+                    <div style="display: flex; justify-content: center; width: 100%;">
+                        <form style="display: flex;" onsubmit="dof()">
+                            <select name="provinces" id="provinces" class="mx-3 form-select" style="height: 40px">
+                                <option value="">รวมทุกจังหวัด</option>
+                                <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                <option value="สมุทรปราการ">สมุทรปราการ</option>
+                                <option value="นนทบุรี">นนทบุรี</option>
+                                <option value="ปทุมธานี">ปทุมธานี</option>
+                                <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+                                <option value="อ่างทอง">อ่างทอง</option>
+                                <option value="ลพบุรี">ลพบุรี</option>
+                                <option value="สิงห์บุรี">สิงห์บุรี</option>
+                                <option value="ชัยนาท">ชัยนาท</option>
+                                <option value="สระบุรี">สระบุรี</option>
+                                <option value="ชลบุรี">ชลบุรี</option>
+                                <option value="ระยอง">ระยอง</option>
+                                <option value="จันทบุรี">จันทบุรี</option>
+                                <option value="ตราด">ตราด</option>
+                                <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+                                <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+                                <option value="นครนายก">นครนายก</option>
+                                <option value="สระแก้ว">สระแก้ว</option>
+                                <option value="นครราชสีมา">นครราชสีมา</option>
+                                <option value="บุรีรัมย์">บุรีรัมย์</option>
+                                <option value="สุรินทร์">สุรินทร์</option>
+                                <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                <option value="อุบลราชธานี">อุบลราชธานี</option>
+                                <option value="ยโสธร">ยโสธร</option>
+                                <option value="ชัยภูมิ">ชัยภูมิ</option>
+                                <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+                                <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+                                <option value="ขอนแก่น">ขอนแก่น</option>
+                                <option value="อุดรธานี">อุดรธานี</option>
+                                <option value="เลย">เลย</option>
+                                <option value="หนองคาย">หนองคาย</option>
+                                <option value="มหาสารคาม">มหาสารคาม</option>
+                                <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+                                <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+                                <option value="สกลนคร">สกลนคร</option>
+                                <option value="นครพนม">นครพนม</option>
+                                <option value="มุกดาหาร">มุกดาหาร</option>
+                                <option value="เชียงใหม่">เชียงใหม่</option>
+                                <option value="ลำพูน">ลำพูน</option>
+                                <option value="ลำปาง">ลำปาง</option>
+                                <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+                                <option value="แพร่">แพร่</option>
+                                <option value="น่าน">น่าน</option>
+                                <option value="พะเยา">พะเยา</option>
+                                <option value="เชียงราย">เชียงราย</option>
+                                <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+                                <option value="นครสวรรค์">นครสวรรค์</option>
+                                <option value="อุทัยธานี">อุทัยธานี</option>
+                                <option value="กำแพงเพชร">กำแพงเพชร</option>
+                                <option value="ตาก">ตาก</option>
+                                <option value="สุโขทัย">สุโขทัย</option>
+                                <option value="พิษณุโลก">พิษณุโลก</option>
+                                <option value="พิจิตร">พิจิตร</option>
+                                <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+                                <option value="ราชบุรี">ราชบุรี</option>
+                                <option value="กาญจนบุรี">กาญจนบุรี</option>
+                                <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+                                <option value="นครปฐม">นครปฐม</option>
+                                <option value="สมุทรสาคร">สมุทรสาคร</option>
+                                <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+                                <option value="เพชรบุรี">เพชรบุรี</option>
+                                <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+                                <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+                                <option value="กระบี่">กระบี่</option>
+                                <option value="พังงา">พังงา</option>
+                                <option value="ภูเก็ต">ภูเก็ต</option>
+                                <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                                <option value="ระนอง">ระนอง</option>
+                                <option value="ชุมพร">ชุมพร</option>
+                                <option value="สงขลา">สงขลา</option>
+                                <option value="สตูล">สตูล</option>
+                                <option value="ตรัง">ตรัง</option>
+                                <option value="พัทลุง">พัทลุง</option>
+                                <option value="ปัตตานี">ปัตตานี</option>
+                                <option value="ยะลา">ยะลา</option>
+                                <option value="นราธิวาส">นราธิวาส</option>
+                                <option value="บึงกาฬ">บึงกาฬ</option>
+
+                            </select>
+                            <select name="filters" id="filters" class="mx-3 form-select" style="height: 40px">
+                                <option value="รวมแพ็กเกจทัวร์">รวมแพ็กเกจทัวร์</option>
+                                <option value="ราคาถูกที่สุด">ราคาถูกที่สุด</option>
+                                <option value="ราคาแพงที่สุด">ราคาแพงที่สุด</option>
+                            </select>
+                            <input class="mx-3 btn btn-primary" type="submit" value="ค้นหา" style="height: 40px">
+                        </form>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <div class="row">
+                            <div class="col-4 mt-2">
+                                <div class="card" style="width: 16rem; height: 23.5rem">
+                                    <div class="card-body text-center" style="padding-top: 45%;">
+                                        <h1><a th:href="@{/tour/edit-add}" style="text-decoration: none; color: black;">+</a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="font-size: 16px" class=" col-4 mt-2" th:each="tour : ${tours}">
+                                <div class="card mx-1">
+                                    <img th:src="${tour.img}" class="card-img-top" alt="...">
+                                    <div class="card-body mb-2 ">
+                                        <h5 class="card-title" th:text="${tour.name}"></h5>
+                                        <hr>
+                                        <div style="display: flex; margin-top: 10px; margin-bottom: 10px;">
+                                            <i class="fa fa-search"></i>
+                                            <p class="card-text mx-2" th:text="${tour.province}"></p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <p>ราคาเริ่มต้น</p>
+                                            </div>
+                                            <div class="col-3" style="text-align: end;">
+                                                <p style="font-weight: bold;">THB</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <p th:text="${tour.price}"></p>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <div class="mt-2">
+                                                <a th:href="@{/tour/TourUpdate/{id}(id=${tour._id})}"><i
+                                                        class="fa fa-pencil text-dark"></i></a>
+                                                <a th:href="@{/tour/delete-reservation/{id}(id=${tour._id})}"><i
+                                                        class="fa fa-trash mx-2 text-dark"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

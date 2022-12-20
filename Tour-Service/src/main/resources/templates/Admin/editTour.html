@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add / Edit Reservations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+    </style>
+</head>
+<body>
+<div class="container" style="font-family: 'Kanit', sans-serif;">
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="border border-secondary rounded" style="padding: 5%; padding-left: 20%; padding-right: 20%;">
+        <form th:action="@{/tour/UpdateForm}" method="post" th:each="tour : ${tour}">
+            <div class="form-group">
+                <label></label>
+                <input type="hidden" th:value="*{tour._id}" class="form-control" name="id">
+                <label>ชื่อทัวร์:</label>
+                <input type="text" name="name" class="form-control" th:value="*{tour.name}"> <br>
+                <label>จังหวัด:</label>
+                <input type="text" name="province" class="form-control" th:value="*{tour.province}">
+                <br>
+                <label>ราคา:</label>
+                <input type="text" name="price" class="form-control" th:value="*{tour.price}">
+                <br>
+                <label>รายละเอียด:</label>
+                <input type="text" name="detail" class="form-control" th:value="*{tour.detail}">
+                <br>
+                <label>ตารางการเดินทาง:</label>
+                <input type="text" name="schedule" class="form-control" th:value="*{tour.schedule}">
+                <br>
+                <label>วันที่เดินทาง:</label>
+                <br>
+                <label class="my-2">ครั้งที่ 1:</label>
+                <input th:value="*{tour.date_first}" name="date_first" type="date" class="form-control my-2"
+                       id="date_first">
+                <br>
+                <label class="my-2">ครั้งที่ 2:</label>
+                <input th:value="*{tour.date_second}" name="date_second" type="date" class="form-control my-2"
+                       id="date_second">
+                <br>
+                <label>ภาพปก:</label>
+                <input type="text" name="img" class="form-control" th:value="*{tour.img}">
+                <br>
+                <label>ภาพรายละเอียด:</label>
+                <input type="text" name="detail_img" class="form-control" th:value="*{tour.detail_img}">
+                <label>จำนวนผู้เดินทาง:</label>
+                <input type="text" name="max_tourist" class="form-control" th:value="*{tour.max_tourist}">
+                <br>
+                <div class="text-center">
+                    <a th:href="@{/tour/adminTour}">
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                    </a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
