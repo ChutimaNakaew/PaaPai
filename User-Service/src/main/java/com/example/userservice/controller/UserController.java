@@ -3,6 +3,7 @@ package com.example.userservice.controller;
 import com.example.userservice.model.User;
 import com.example.userservice.repository.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+    private RabbitTemplate template;
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -62,7 +64,8 @@ public class UserController {
     public String payTour(HttpServletRequest request, @RequestParam("bank") String bank, @RequestParam("id") String id, @RequestParam("image") MultipartFile image) throws IOException {
         userService.change(bank, id, image);
         String redirectUrl = request.getScheme() + "://localhost:8080/tour/main";
-        return "redirect:" + redirectUrl;
+//        return "redirect:" + redirectUrl;
+        return "redirect:/Status/"+id;
     }
 
 //-------------------------------------------------Part Admin-----------------------------------------------------------
@@ -107,14 +110,23 @@ public class UserController {
     public String updateStateTrue(HttpServletRequest request, @PathVariable("id") String id)
     {
         userService.updateStateTrue(id);
+        template.convertAndSend("MyDirect", "check", id);
         String redirectUrl = request.getScheme() + "://localhost:8080/user/adminPayment";
         return "redirect:" + redirectUrl;
+    }
+
+    @GetMapping("/Status/{id}")
+    public String Status(@PathVariable("id") String id,Model model){
+        User user = userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "user/Status";
     }
 
     @PostMapping("/user/updateStateFalse/{id}")
     public String updateStateFalse(HttpServletRequest request, @PathVariable("id") String id)
     {
         userService.updateStateFalse(id);
+        template.convertAndSend("MyDirect2", "notpass", id);
         String redirectUrl = request.getScheme() + "://localhost:8080/user/adminPayment";
         return "redirect:" + redirectUrl;
     }

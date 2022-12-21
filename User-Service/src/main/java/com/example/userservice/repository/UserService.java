@@ -3,6 +3,7 @@ package com.example.userservice.repository;
 import com.example.userservice.model.User;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,7 +15,31 @@ import java.util.Optional;
 public class UserService {
     private UserRepository userRepository;
 
+    @RabbitListener(queues = "Status")
+    public void listener(String id) throws IOException
+    {
+        System.out.println("You Can go With PAAPAI Tour");
+        User user = new User();
+        user = userRepository.findById(id).get();
+        String state = "true";
+        user.setState(state);
+        userRepository.save(user);
+
+    }
+
+    @RabbitListener(queues = "StatusNotpass")
+    public void Notpass(String id) {
+
+        System.out.println("You Can Not go With PAAPAI Tour");
+        User user = new User();
+        user = userRepository.findById(id).get();
+        String state = "false";
+        user.setState(state);
+        userRepository.save(user);
+    }
+
     @Autowired
+
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

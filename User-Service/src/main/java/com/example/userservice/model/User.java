@@ -31,6 +31,7 @@ public class User {
     private Double tour_price;
     private String province;
     private String status;
+    private String state;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
