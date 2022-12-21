@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/33e0efac93.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap'); </style>
+</head>
+
+<body style="background-image: url('https://cdn.discordapp.com/attachments/904312349454897192/1055057170904907836/Enchanting-Travels-Thailand-Tours-Railay-beach-in-Krabi-Thailand.jpg'); background-repeat: no-repeat; background-size: cover;">
+<div class="container-fluid mb-3 mt-2" style="font-family: 'Kanit', sans-serif;">
+    <div class="card mx-auto position-absolute top-50 start-50 translate-middle shadow-sm p-3 mb-5 bg-body rounded"
+         style="width: 25rem;">
+        <img src="https://cdn.discordapp.com/attachments/904312349454897192/1052399624238927882/image.png" width="167"
+             height="189" style="object-fit: contain;" class="card-img-top" alt="...">
+        <div class="card-body mx-4">
+            <form class="needs-validation" novalidate th:action="@{/admin/adminLogin}" method="post">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">อีเมล</label>
+                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           required name="username">
+                    <div class="invalid-feedback">
+                        Please input your email.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">รหัสผ่าน</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" required name="password">
+                    <div class="invalid-feedback">
+                        Please input your password.
+                    </div>
+                </div>
+                <div class="d-grid col mx-auto">
+                    <button class="btn btn-primary" type="submit">เข้าสู่ระบบ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+
+</html>
