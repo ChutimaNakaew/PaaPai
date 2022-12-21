@@ -89,8 +89,8 @@
             <!--            <p class="card-text" th:text="${user.state}"></p>-->
             <div th:switch="${user.state}">
               <p th:case="'true'" class="text-success "> <span> <i class="bi bi-check-square"></i></span> ผ่านการตรวจสอบ</p>
-              <p th:case="'false'" class="text-danger "><span><i class="bi bi-x-square "></i></span>ไม่ผ่านการตรวจสอบ</p>
-              <p th:case="''" class="text-warning "><span><i class="bi bi-arrow-repeat"></i></span>รออนุมัติ</p>
+              <p th:case="'false'" class="text-danger "><span><i class="bi bi-x-square "></i></span> ไม่ผ่านการตรวจสอบ</p>
+              <p th:case="''" class="text-warning "><span><i class="bi bi-arrow-repeat"></i></span> รออนุมัติ</p>
             </div>
           </div>
         </div>

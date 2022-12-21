@@ -18,7 +18,7 @@ public class UserService {
     @RabbitListener(queues = "Status")
     public void listener(String id) throws IOException
     {
-        System.out.println("You Can go With PAAPAI Tour");
+        System.out.println("Id "+id+ " Can go With PAAPAI Tour");
         User user = new User();
         user = userRepository.findById(id).get();
         String state = "true";
@@ -30,7 +30,7 @@ public class UserService {
     @RabbitListener(queues = "StatusNotpass")
     public void Notpass(String id) {
 
-        System.out.println("You Can Not go With PAAPAI Tour");
+        System.out.println("Id "+id+ " Can Not go With PAAPAI Tour");
         User user = new User();
         user = userRepository.findById(id).get();
         String state = "false";
