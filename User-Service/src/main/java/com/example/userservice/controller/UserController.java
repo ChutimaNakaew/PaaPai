@@ -141,6 +141,7 @@ public class UserController {
     public String changeStateFalse(HttpServletRequest request, @PathVariable("id") String id)
     {
         userService.changeStateFalse(id);
+        template.convertAndSend("MyDirect2", "notpass", id);
         String redirectUrl = request.getScheme() + "://localhost:8080/user/adminPaymentApprove";
         return "redirect:" + redirectUrl;
     }
@@ -155,6 +156,7 @@ public class UserController {
     public String changeStateTrue(HttpServletRequest request, @PathVariable("id") String id)
     {
         userService.updateStateTrue(id);
+        template.convertAndSend("MyDirect", "check", id);
         String redirectUrl = request.getScheme() + "://localhost:8080/user/notPass";
         return "redirect:" + redirectUrl;
     }
