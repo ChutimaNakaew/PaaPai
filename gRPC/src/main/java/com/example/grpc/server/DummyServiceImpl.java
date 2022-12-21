@@ -13,7 +13,7 @@ public class DummyServiceImpl extends DummyServiceGrpc.DummyServiceImplBase {
         String txt = request.getTxt();
 
     // Block 2: create the response message
-        String result = "Hello " + txt;
+        String result = "Welcome back admin " + txt + "😸";
         DummyMessage response = DummyMessage.newBuilder().setTxt(result).build();
 
     // Block 3: send the response

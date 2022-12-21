@@ -21,16 +21,14 @@ public class AdminService {
         String p = "";
         u = adminRepository.findByUsername(username).getUsername();
         p = adminRepository.findByUsername(username).getPassword();
-        System.out.println(u);
-        System.out.println("=======");
-        System.out.println(p);
-        System.out.println(username);
-        System.out.println("=======");
-        System.out.println(password);
+        t.setUsername(username);
+        t.setPassword(password);
         if (username.equals(u) && password.equals(p)){
-            return u;
+            return "true";
+//            return "adminMenu/" + u;
         }else {
-            return "login";
+            return "false";
+//            return "login";
         }
     }
 }

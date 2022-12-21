@@ -14,25 +14,26 @@ public class DummyGatewayService {
     @RequestMapping(value = "/grpc/welcome/{name}", method = RequestMethod.GET)
     public String sayHi(@PathVariable("name") String name, Model model) {
 
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",50055)
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50055)
                 .usePlaintext().build();
         DummyServiceGrpc.DummyServiceBlockingStub syncClient
                 = DummyServiceGrpc.newBlockingStub(channel);
 
         // created a greet service client (blocking - synchronous)
-            DummyServiceGrpc.DummyServiceBlockingStub dummyClient
-                    = DummyServiceGrpc.newBlockingStub(channel);
+        DummyServiceGrpc.DummyServiceBlockingStub dummyClient
+                = DummyServiceGrpc.newBlockingStub(channel);
 
         // created a protocol buffer greeting message
-            DummyMessage requestMessage = DummyMessage.newBuilder().setTxt(name).build();
+        DummyMessage requestMessage = DummyMessage.newBuilder().setTxt(name).build();
 
         // call the RPC and get back a GreetResponse (Protocol Buffers)
-            DummyMessage responseMessage = dummyClient.sayHi(requestMessage);
-            channel.shutdown();
+        DummyMessage responseMessage = dummyClient.sayHi(requestMessage);
+        channel.shutdown();
 
-            model.addAttribute("name", responseMessage.getTxt());
+        model.addAttribute("name", name);
+        model.addAttribute("greet", responseMessage.getTxt());
 
-            return "Hi";
+        return "AdminMenu";
     }
 
 }

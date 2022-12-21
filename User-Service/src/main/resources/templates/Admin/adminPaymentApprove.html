@@ -40,21 +40,17 @@
         <div class="col-3">
             <div class="p-3 border bg-white h-100 rounded-2 shadow p-3 mb-5 bg-body rounded">
                 <div class="text-center">
-                    <a href="/tour/adminHome"><img src="https://cdn.discordapp.com/attachments/904312349454897192/1052410937170206720/PaaPai.png" class="rounded logo" alt="LOGO_PaaPai"></a>
-                    <hr>
                     <p class="fw-bold text-primary text-start">ผู้ดูแลระบบ</p>
-                    <div class="row gx-3 d-flex align-items-center justify-content-center">
-                        <div class="col-4">
-                            <img src="https://cdn.discordapp.com/attachments/904312349454897192/1054774745515700375/IMG_20191125_095112.jpg" class="rounded-circle imgAdmin" alt="img_admin">
-                        </div>
-                        <div class="col-8 text-center">
-                            <div class="bg-white h-100">แอดมินต้นหอม
+                    <div class="row">
+                        <p class="col-5 text-start ms-2"><i class="bi bi-person-fill"></i> ผู้ดูแลระบบ</p>
+                        <div class="col text-center">
+                            <a style="text-decoration: none;" th:href="@{/admin/login}">
                                 <div class="bg-danger text-white rounded-3">ออกจากระบบ</div>
-                            </div>
+                            </a>
                         </div>
                     </div>
+                    <hr>
                     <div>
-                        <hr>
                         <p class="fw-bold text-primary text-start">ทัวร์</p>
                         <a href="/tour/adminHome" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
                                 class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
@@ -62,15 +58,17 @@
                             <p class=" text-start ms-2"><i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
                         <hr>
                         <p class="fw-bold text-primary text-start">รายการชำระเงิน</p>
-                        <a href="/user/adminPayment" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
-                                class="bi bi-cash"></i> รายการชำระเงิน</p></a>
+                        <a href="/user/adminPayment" class="text-decoration-none text-dark"><p class=" text-start ms-2">
+                            <i
+                                    class="bi bi-cash"></i> รายการชำระเงิน</p></a>
                         <a href="/user/adminPaymentApprove" class="text-decoration-none text-dark"><p
                                 class=" text-start ms-2"><i class="bi bi-check-circle-fill"></i> อนุมัติแล้ว</p></a>
                         <a href="/user/notPass" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
                                 class="bi bi-x-circle-fill"></i> ไม่อนุมัติ</p></a>
                         <hr>
                         <p class="fw-bold text-primary text-start">การจอง</p>
-                        <a href="/user/adminAllBooking" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
+                        <a href="/user/adminAllBooking" class="text-decoration-none text-dark"><p
+                                class=" text-start ms-2"><i
                                 class="bi bi-receipt-cutoff"></i> รายการจองทั้งหมด</p></a>
                     </div>
                 </div>
