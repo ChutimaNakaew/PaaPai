@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0de95295-3a7d-465b-83b3-901fe8edb45e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Payment-Service/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Payment-Service/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Payment-Service/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Payment-Service/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Payment-Service/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Payment-Service/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Payment-Service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tour-Service/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tour-Service/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tour-Service/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tour-Service/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tour-Service/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tour-Service/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tour-Service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Service/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Service/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Service/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Service/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Service/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Service/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-server/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-server/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-server/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-server/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-server/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-server/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-server/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-Service.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Payment-Service/Payment-Service.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tour-Service/Tour-Service.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tour-Service/src/main/resources/templates/User/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Tour-Service/src/main/resources/templates/User/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tour-Service/target/classes/templates/Admin/adminTour.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Tour-Service/target/classes/templates/Admin/adminTour.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-Service/User-Service.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/api-gateway.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../discovery-server/discovery-server.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2JDpqmIuVc7Mmhux3plr2KEnnEN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="AdminServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="Admin-Service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.adminservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.adminservice.AdminServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.AdminServiceApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0de95295-3a7d-465b-83b3-901fe8edb45e" name="Changes" comment="" />
+      <created>1671622701840</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671622701840</updated>
+      <workItem from="1671622704466" duration="905000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
