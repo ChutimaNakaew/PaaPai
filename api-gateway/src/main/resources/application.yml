@@ -34,3 +34,7 @@ spring:
           uri: lb://ADMIN-SERVICE
           predicates:
             - Path=/admin/**
+        - id: gRPCModule
+          uri: lb://GRPC-SERVICE
+          predicates:
+            - Path=/grpc/**

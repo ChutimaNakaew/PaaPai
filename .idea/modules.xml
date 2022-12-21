@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Admin-Service/Admin-Service.iml" filepath="$PROJECT_DIR$/Admin-Service/Admin-Service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/PaaPai.iml" filepath="$PROJECT_DIR$/.idea/PaaPai.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Payment-Service/Payment-Service.iml" filepath="$PROJECT_DIR$/Payment-Service/Payment-Service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Tour-Service/Tour-Service.iml" filepath="$PROJECT_DIR$/Tour-Service/Tour-Service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/User-Service/User-Service.iml" filepath="$PROJECT_DIR$/User-Service/User-Service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
-      <module fileurl="file://$PROJECT_DIR$/discovery-server/discovery-server.iml" filepath="$PROJECT_DIR$/discovery-server/discovery-server.iml" />
     </modules>
   </component>
 </project>

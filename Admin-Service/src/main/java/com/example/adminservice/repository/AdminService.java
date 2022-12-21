@@ -28,7 +28,7 @@ public class AdminService {
         System.out.println("=======");
         System.out.println(password);
         if (username.equals(u) && password.equals(p)){
-            return "adminHome";
+            return u;
         }else {
             return "login";
         }

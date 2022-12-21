@@ -16,12 +16,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Admin-Service" target="17" />
-      <module name="api-gateway" target="17" />
-      <module name="discovery-server" target="17" />
-      <module name="Payment-Service" target="17" />
-      <module name="Tour-Service" target="17" />
-      <module name="User-Service" target="17" />
+      <module name="demo3gRPC.main" target="17" />
+      <module name="demo3gRPC.test" target="17" />
+      <module name="gRPC-Service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

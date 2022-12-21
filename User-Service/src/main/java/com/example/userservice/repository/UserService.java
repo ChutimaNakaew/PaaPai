@@ -49,6 +49,7 @@ public class UserService {
     public User getId(String id) {
         return userRepository.findById(id).get();
     }
+
     public User getUserById(String id){
         Optional<User> optional = userRepository.findById(id);
         User user = null;
