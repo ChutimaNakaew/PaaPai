@@ -1,8 +1,12 @@
 package com.example.tourservice.repository;
 
 import com.example.tourservice.model.Tour;
+import org.apache.tomcat.util.json.JSONParser;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -115,6 +119,29 @@ public class TourService {
         t.setDate_second(date_second);
         t.setMax_tourist(max_tourist);
         tourRepository.save(t);
+    }
+
+    public List<String> getProvince() {
+        String test = WebClient
+                .create()
+                .get()
+                .uri("https://opend.data.go.th/govspending/bbgfmisprovince?api-key=CjsvDTvt1yp1GQV8mwZ0SBPQgIN6w8JK")
+                .retrieve()
+                .bodyToMono(String.class).block();
+        JSONObject test2 = new JSONObject(test);
+        JSONArray result = test2.getJSONArray("result");
+        List<String> provinces = new ArrayList<String>();
+        for(int i=0; i< result.length(); i++) {
+            JSONObject obj = result.getJSONObject(i);
+            String province = obj.getString("prov_name");
+            provinces.add(province);
+
+        }
+        System.out.println(provinces);
+        return provinces;
+//        JSONParser parser = new JSONParser();
+//        System.out.println(test);
+
     }
 
 }

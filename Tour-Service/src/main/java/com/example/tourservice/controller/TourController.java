@@ -28,7 +28,8 @@ public class TourController {
     public String tours(@RequestParam(value = "provinces", required=false) String provinces, @RequestParam(value = "filters", required=false) String filters, Model model) {
 
         if (provinces == null || provinces.equals("")) {
-            model.addAttribute("tours", tourService.getAllTours(filters));
+//            model.addAttribute("tours", tourService.getAllTours(filters));
+            model.addAttribute("tours", tourService.getProvince());
         } else {
             model.addAttribute("tours", tourService.getToursByProvince(provinces, filters)); //, filters
         }
@@ -46,6 +47,12 @@ public class TourController {
     public String formTour(@PathVariable("name") String name, Model model) {
         model.addAttribute("tours", tourService.TourByName(name));
         return "User/Form";
+    }
+
+    @GetMapping("/tour/provinces")
+    public String getProvince() {
+        tourService.getProvince();
+        return "User/Main";
     }
 
 //---------------------------------------Part Admin---------------------------------------------------------------------
@@ -90,7 +97,7 @@ public class TourController {
     public String removeTour(HttpServletRequest request, @PathVariable("id") String id, Model model) {
         tourService.deleteTourById(id);
         model.addAttribute("tour", tourService.getAllTours());
-        String redirectUrl = request.getScheme() + "://localhost:8080/tour/adminTour";
+        String redirectUrl = request.getScheme() + "://localhost/tour/adminTour";
         return "redirect:" + redirectUrl;
     }
 
@@ -117,7 +124,7 @@ public class TourController {
     )
     {
         tourService.changeName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second, max_tourist);
-        String redirectUrl = request.getScheme() + "://localhost:8080/tour/adminTour";
+        String redirectUrl = request.getScheme() + "://localhost/tour/adminTour";
         return "redirect:" + redirectUrl;
     }
 
