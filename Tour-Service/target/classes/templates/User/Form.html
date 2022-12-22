@@ -54,7 +54,7 @@
             </div>
             <div class="row mt-2 border">
                 <div class="col-12" th:each="tour : ${tours}">
-                    <form class="m-4" th:action="@{/user/save-user}" th:object="${user}"
+                    <form class="m-4" th:action="@{/user/save-user}"
                           method="post">
                         <div class="col-12">
                             <h5>แบบฟอร์มการจองสำหรับติดต่อ</h5>
@@ -64,13 +64,14 @@
                                 <div class="col-6">
                                     <label class="form-label">ชื่อผู้ติดต่อ
                                         <span class="require">*</span></label>
-                                    <input th:field="*{firstname}" type="text" class="form-control" id="firstname"
+                                    <input name="firstname" th:value="*{firstname}" type="text" class="form-control"
+                                           id="firstname"
                                            aria-describedby="emailHelp">
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label">นามสกุลผู้ติดต่อ
                                         <span class="require">*</span></label>
-                                    <input th:field="*{lastname}" type="text" class="form-control"
+                                    <input name="lastname" th:value="*{lastname}" type="text" class="form-control"
                                            aria-describedby="emailHelp">
                                 </div>
                             </div>
@@ -78,12 +79,12 @@
                                 <div class="col-6">
                                     <label class="form-label">หมายเลขโทรศัพท์
                                         <span class="require">*</span></label>
-                                    <input th:field="*{phone}" type="text" class="form-control"
+                                    <input name="phone" th:value="*{phone}" type="text" class="form-control"
                                            aria-describedby="emailHelp">
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label">Email <span class="require">*</span></label>
-                                    <input th:field="*{email}" type="email" class="form-control"
+                                    <input name="email" th:value="*{email}" type="email" class="form-control"
                                            aria-describedby="emailHelp">
                                 </div>
                             </div>
@@ -91,7 +92,7 @@
                                 <div class="col-12">
                                     <label for="exampleFormControlTextarea1" class="form-label">หมายเหตุ
                                     </label>
-                                    <textarea th:field="*{annotation}" class="form-control"
+                                    <textarea name="annotation" th:value="*{annotation}" class="form-control"
                                               id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
                             </div>
@@ -101,7 +102,7 @@
                                         <div class="col-4">
                                             <h5>ชื่อทัวร์</h5>
                                             <div class="form-group">
-                                                <select class="form-select" th:field="*{tour_name}">
+                                                <select class="form-select" name="tour_name" th:value="*{tour_name}">
                                                     <option selected th:each="tour : ${tours.name}"
                                                             th:value="${tour}"
                                                             th:text="${tour}">
@@ -112,7 +113,7 @@
                                         <div class="col-4">
                                             <h5>จังหวัด</h5>
                                             <div class="form-group">
-                                                <select class="form-select" th:field="*{province}">
+                                                <select class="form-select" name="province" th:value="*{province}">
                                                     <option selected th:each="tour : ${tours.province}"
                                                             th:value="${tour}"
                                                             th:text="${tour}">
@@ -123,7 +124,7 @@
                                         <div class="col-4">
                                             <h5>ราคา/ท่าน</h5>
                                             <div class="form-group">
-                                                <select class="form-select" th:field="*{tour_price}">
+                                                <select class="form-select" name="tour_price" th:value="*{tour_price}">
                                                     <option selected th:each="tour : ${tours.price}"
                                                             th:value="${tour}"
                                                             th:text="${tour}">
@@ -137,7 +138,8 @@
                                         <div class="col-6">
                                             <h5>วันเดินทาง</h5>
                                             <div class="form-group">
-                                                <select class="form-select" th:field="*{date}" th:each="tour : ${tours}" id="date">
+                                                <select class="form-select" name="date" th:value="*{date}"
+                                                        th:each="tour : ${tours}" id="date">
                                                     <option value="">เลือกวันเดินทาง</option>
                                                     <option
                                                             th:value="${tour.date_first}"
@@ -155,7 +157,7 @@
                                             <div class="input-group">
                                                     <span class="input-group-text"><i
                                                             class="fa-solid fa-person fa-xl"></i></span>
-                                                <input th:field="*{total_tourist}"
+                                                <input name="total_tourist" th:value="*{total_tourist}"
                                                        class="form-outline form-control w-50"
                                                        type="number" min="1" placeholder="จำนวนผู้เดินทาง">
                                                 <span class="input-group-text">คน</span>

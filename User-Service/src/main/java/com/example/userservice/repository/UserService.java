@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Optional;
+
+import static org.apache.commons.lang.RandomStringUtils.randomAlphabetic;
 
 @Service
 public class UserService {
@@ -44,10 +47,28 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User save(User user) {
+    public String save(String firstname, String lastname, String phone, String email, String annotation, Integer total_tourist, Double tour_price, String tour_name, String province, LocalDate date) {
+        User user = new User();
+        String uuid = randomAlphabetic(10);
+        user.setUuid(uuid);
+        user.setFirstname(firstname);
+        user.setLastname(lastname);
+        user.setPhone(phone);
+        user.setEmail(email);
+        user.setAnnotation(annotation);
+        user.setTotal_tourist(total_tourist);
+        user.setTour_price(tour_price);
+        user.setTour_name(tour_name);
+        user.setProvince(province);
+        user.setDate(date);
         user.setStatus("");
         user.setState("");
-        return userRepository.save(user);
+        userRepository.save(user);
+        return uuid;
+    }
+
+    public Iterable<User> findByUuid(String uuid) {
+        return userRepository.findByUuid(uuid);
     }
 
 

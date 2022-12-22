@@ -11,6 +11,9 @@ public interface UserRepository extends CrudRepository<User, String> {
     @Query(value = "{tour_name: '?0'}")
     public Iterable<User> findByNameTour(String name);
 
+    @Query(value = "{uuid: '?0'}")
+    public Iterable<User> findByUuid(String uuid);
+
     @Query(value = "{tour_name: ?0}", count = true)
     public Integer countUser(String tour_name);
 

@@ -20,6 +20,7 @@ import java.time.LocalDate;
 public class User {
     @Id
     private String id;
+    private String uuid;
     private String firstname;
     private String lastname;
     private String phone;

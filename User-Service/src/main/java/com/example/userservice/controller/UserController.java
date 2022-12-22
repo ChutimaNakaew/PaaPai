@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Base64;
 import java.util.Optional;
 
@@ -31,14 +32,26 @@ public class UserController {
     }
 
     @PostMapping("/user/save-user")
-    public String saveUser(HttpServletRequest request, @ModelAttribute("user") @Valid User user,
-                           BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult);
-            String redirectUrl = request.getScheme() + "://localhost:8080/tour/main";
-            return "redirect:" + redirectUrl;
-        }
-        userService.save(user);
+    public String saveUser(HttpServletRequest request, @RequestParam("firstname") String firstname,
+                           @RequestParam("lastname") String lastname,
+                           @RequestParam("phone") String phone,
+                           @RequestParam("email") String email,
+                           @RequestParam("annotation") String annotation,
+                           @RequestParam("total_tourist") Integer total_tourist,
+                           @RequestParam("tour_name") String tour_name,
+                           @RequestParam("tour_price") Double tour_price,
+                           @RequestParam("province") String province,
+                           @RequestParam("date") LocalDate date) {
+
+        String result = userService.save(firstname, lastname, phone, email, annotation, total_tourist, tour_price, tour_name, province, date);
+
+        String redirectUrl = request.getScheme() + "://localhost:8080/user/confirm/" + result;
+        return "redirect:" + redirectUrl;
+    }
+
+    @GetMapping("/user/confirm/{uuid}")
+    public String confirm(@PathVariable("uuid") String uuid, Model model) {
+        model.addAttribute("user", userService.findByUuid(uuid));
         return "User/ConfirmTour";
     }
 
