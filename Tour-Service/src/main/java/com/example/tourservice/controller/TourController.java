@@ -1,7 +1,6 @@
 package com.example.tourservice.controller;
 
 import com.example.tourservice.model.Tour;
-import com.example.tourservice.model.User;
 import com.example.tourservice.repository.TourService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +45,6 @@ public class TourController {
 
     @GetMapping("/tour/form/{name}")
     public String formTour(@PathVariable("name") String name, Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
         model.addAttribute("tours", tourService.TourByName(name));
         return "User/Form";
     }
