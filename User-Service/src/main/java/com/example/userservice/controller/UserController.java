@@ -63,9 +63,9 @@ public class UserController {
     @PostMapping("/user/save-pay")
     public String payTour(HttpServletRequest request, @RequestParam("bank") String bank, @RequestParam("id") String id, @RequestParam("image") MultipartFile image) throws IOException {
         userService.change(bank, id, image);
-        String redirectUrl = request.getScheme() + "://localhost:8080/tour/main";
-//        return "redirect:" + redirectUrl;
-        return "redirect:/Status/"+id;
+        String redirectUrl = request.getScheme() + "://localhost:8080/user/Status/" + id;
+        return "redirect:" + redirectUrl;
+//        return "redirect:/Status/"+id;
     }
 
 //-------------------------------------------------Part Admin-----------------------------------------------------------
@@ -115,7 +115,7 @@ public class UserController {
         return "redirect:" + redirectUrl;
     }
 
-    @GetMapping("/Status/{id}")
+    @GetMapping("/user/Status/{id}")
     public String Status(@PathVariable("id") String id,Model model){
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
