@@ -97,7 +97,7 @@ public class TourController {
     public String removeTour(HttpServletRequest request, @PathVariable("id") String id, Model model) {
         tourService.deleteTourById(id);
         model.addAttribute("tour", tourService.getAllTours());
-        String redirectUrl = request.getScheme() + "://localhost/tour/adminTour";
+        String redirectUrl = request.getScheme() + "://localhost:8080/tour/adminTour";
         return "redirect:" + redirectUrl;
     }
 
@@ -124,7 +124,7 @@ public class TourController {
     )
     {
         tourService.changeName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second, max_tourist);
-        String redirectUrl = request.getScheme() + "://localhost/tour/adminTour";
+        String redirectUrl = request.getScheme() + "://localhost:8080/tour/adminTour";
         return "redirect:" + redirectUrl;
     }
 
