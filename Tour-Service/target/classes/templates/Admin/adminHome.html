@@ -50,7 +50,7 @@
                     <hr>
                     <div>
                         <p class="fw-bold text-primary text-start">ทัวร์</p>
-                        <a href="/tour/adminHome" class="text-decoration-none text-dark"><p class=" text-start ms-2"><i
+                        <a href="/tour/adminHome" class="text-decoration-none text-dark"><p class=" text-start ms-2 text-warning"><i
                                 class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
                         <a href="/tour/adminTour" class="text-decoration-none text-dark"><p class=" text-start ms-2">
                             <p class=" text-start ms-2"><i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
@@ -76,17 +76,10 @@
             <div class="p-3 border bg-white h-100 fs-2 rounded-2 shadow p-3 mb-5 bg-body rounded">
                 <p class=" text-start ms-2 mt-3"><i class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p>
                 <hr>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="ค้นหาชื่อทัวร์" aria-label="ชื่อทัวร์"
-                           aria-describedby="button-addon2">
-                    <button class="btn btn-outline-primary" type="button" id="button-addon2"><i
-                            class="bi bi-search"></i></button>
-                </div>
 
                 <table class="table fs-6 table-hover text-center">
                     <thead>
                     <tr>
-                        <th scope="col" style="width: 80px">จำนวนรับ</th>
                         <th scope="col">ชื่อทัวร์</th>
                         <th scope="col" style="width: 200px">วันเดินทาง</th>
                         <th scope="col" style="width: 120px">รายชื่อผู้จอง</th>
@@ -94,9 +87,6 @@
                     </thead>
                     <tbody th:each="tour : ${tours}">
                     <tr>
-                        <td>
-                            <div class="text-dark bg-info rounded" th:text="${tour.max_tourist}"></div>
-                        </td>
                         <td><p th:text="${tour.name}"></p></td>
                         <td th:text="${tour.date_first}"></td>
                         <td><a th:href="@{/user/adminViewList/{nameTour}(nameTour=${tour.name})}"

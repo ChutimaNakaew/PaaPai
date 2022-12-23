@@ -73,15 +73,10 @@
                         <span>คน</span>
                     </div>
                     <hr>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="ค้นหารายชื่อ" aria-label="ชื่อทัวร์" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-primary" type="button" id="button-addon2"><i
-                            class="bi bi-search"></i></button>
-                    </div>
-                    <table class="table fs-6 table-hover">
+                    <table class="table fs-6 table-hover text-center">
                         <thead>
                             <tr>
-                                <th scope="col">ไอดี</th>
+                                <th scope="col">สถานะ</th>
                                 <th scope="col">ชื่อ-นามสกุล</th>
                                 <th scope="col">โทรศัพท์</th>
                                 <th scope="col">อีเมล</th>
@@ -92,7 +87,11 @@
                                 <td colspan="4"> No User Booking</td>
                             </tr>
                             <tr th:each="user: ${user}">
-                                <td th:text="${user.id}"></td>
+                                <td th:switch="${user.status}">
+                                    <p th:case="'true'" class="text-white bg-success rounded">อนุมัติ</p>
+                                    <p th:case="'false'" class="text-white bg-danger rounded">ไม่อนุมัติ</p>
+                                    <p th:case="''" class="text-white bg-warning rounded">รออนุมัติ</p>
+                                </td>
                                 <td th:text="${user.firstname + '&emsp;' + user.lastname}">
                                 </td>
                                 <td th:text="${user.phone}"></td>
